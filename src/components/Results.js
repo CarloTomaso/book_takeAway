@@ -11,11 +11,13 @@ const fakeData = [
     { title: 'libro 7', description: '            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium quos nisi.' }
 ]
 
-const Results = () => {
+const Results = ({ data }) => {
+    console.log(data.data.items);
+    const myData = data.data.items;
 
     const renderElement = () => {
-        return fakeData.map((book) => {
-            return < SingleResult title={book.title} description={book.description} />
+        return myData.map((book, i) => {
+            return < SingleResult key={i} title={book.volumeInfo.title} description={book.volumeInfo.description} />
         })
     }
     return (
