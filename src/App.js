@@ -14,8 +14,11 @@ function App() {
   
     } */
   const fetchData = async () => {
+    if (inputText.trim() == '') {
+      return
+    }
     const myData = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${inputText}`);
-    setData(myData)
+    setData(myData.data)
 
 
   }
@@ -26,6 +29,15 @@ function App() {
     setInputText(e.target.value)
   }
 
+  const showResults = () => {
+    if (data.totalItems === 0) {
+      return <p> Ricerca senza risultati </p>
+    } else if (data.length === 0) {
+      return <p>...cerca qualcosa</p>
+    } else {
+      return <Results data={data} />
+    }
+  }
 
   return (
     <div className="App">
@@ -37,7 +49,7 @@ function App() {
           <button onClick={fetchData}>Cerca</button>
         </div>
       </div>
-      {data.length === 0 ? <p>...cerca qualcosa</p> : <Results data={data} />}
+      {showResults()}
     </div>
   );
 }

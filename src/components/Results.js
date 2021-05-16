@@ -12,8 +12,8 @@ const fakeData = [
 ]
 
 const Results = ({ data }) => {
-    console.log(data.data.items);
-    const myData = data.data.items;
+
+    const myData = data.items;
 
     const renderElement = () => {
         return myData.map((book, i) => {
