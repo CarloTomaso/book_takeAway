@@ -1,6 +1,6 @@
 import styles from '../style/Header.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBookReader, faPlusSquare, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faBookReader, faPlusSquare } from '@fortawesome/free-solid-svg-icons'
 
 const Header = () => {
     return (
