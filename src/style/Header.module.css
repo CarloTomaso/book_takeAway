@@ -1,0 +1,14 @@
+.container{
+    display: flex;
+    background: black;
+    height: 10vh;
+    color: white;
+    padding: 30px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rightContainer{
+    display: flex;
+  
+}
