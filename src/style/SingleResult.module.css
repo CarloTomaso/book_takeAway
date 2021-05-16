@@ -1,6 +1,10 @@
 .container {
-    width: 400px;
-    height: 400px;
+    width: 200px;
+    height: 300px;
     background: lightcoral;
     margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 70px;
+
 }

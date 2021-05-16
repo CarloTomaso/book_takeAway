@@ -1,5 +1,6 @@
 import Header from './components/Header'
 import Results from './components/Results'
+import Message from './components/Message'
 import { useEffect, useState } from 'react';
 import axios from 'axios'
 import styles from './style/SearchBar.module.css'
@@ -7,6 +8,7 @@ import styles from './style/SearchBar.module.css'
 function App() {
   const [data, setData] = useState([])
   const [inputText, setInputText] = useState('')
+  const [loading, setLoading] = useState(false);
   /*   const fetchData = async () => {
       const MyData = await fetch('https://www.googleapis.com/books/v1/volumes?q=harry');
       const data = await MyData.json();
@@ -17,8 +19,10 @@ function App() {
     if (inputText.trim() == '') {
       return
     }
+    await setLoading(true)
     const myData = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${inputText}`);
-    setData(myData.data)
+    await setData(myData.data)
+    await setLoading(false)
 
 
   }
@@ -31,11 +35,11 @@ function App() {
 
   const showResults = () => {
     if (data.totalItems === 0) {
-      return <p> Ricerca senza risultati </p>
+      return <Message message={'Ricerca senza risultati'} error={true} />
     } else if (data.length === 0) {
-      return <p>...cerca qualcosa</p>
+      return <Message message={'...cerca qualcosa'} />
     } else {
-      return <Results data={data} />
+      return loading ? <Message message={'...sto caricando'} /> : <Results data={data} />
     }
   }
 
@@ -49,6 +53,7 @@ function App() {
           <button onClick={fetchData}>Cerca</button>
         </div>
       </div>
+      <h1>Results</h1>
       {showResults()}
     </div>
   );

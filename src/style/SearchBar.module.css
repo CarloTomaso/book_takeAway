@@ -19,7 +19,7 @@ h2 {
     margin-bottom: 20px;
 }
 
-p{
+p, h1{
     padding-left: 30px;
     padding-right: 30px; 
 }
