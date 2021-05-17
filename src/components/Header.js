@@ -1,13 +1,18 @@
 import styles from '../style/Header.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookReader, faPlusSquare } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
         <div className={styles.container}>
-            <FontAwesomeIcon size='3x' icon={faBookReader} />
+            <Link to='/'>
+                <FontAwesomeIcon style={{ color: 'white' }} size='3x' icon={faBookReader} />
+            </Link>
             <div className={styles.rightContainer}>
-                <p style={{ marginRight: '20px' }}>I miei libri</p>
+                <Link style={{ color: 'white', textDecoration: 'none' }} to="savedbooks">
+                    <p style={{ marginRight: '20px' }}>I miei libri</p>
+                </Link>
                 <FontAwesomeIcon size='3x' icon={faPlusSquare} />
             </div>
 
