@@ -14,7 +14,7 @@ input {
     font-size: 1rem;
     width: 95%
 }
-h2 {
+container h2 {
     color: #FF0076;
     margin-bottom: 20px;
 }
